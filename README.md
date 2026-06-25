@@ -6,9 +6,7 @@
 
 # Random NTP Sync for Windows
 
-A simple PowerShell script that randomly selects one public NTP server, configures Windows Time Service (`w32time`) to use it, and immediately synchronizes the system clock.
-
-This script is intended to run automatically at system startup or user logon via Windows Task Scheduler.
+Randomly selects a public NTP server and synchronizes Windows Time Service (w32time).
 
 ## Features
 
