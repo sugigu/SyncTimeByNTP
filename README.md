@@ -1,3 +1,9 @@
+# SyncTimeByNTP
+
+![PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B-blue)
+![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey)
+![License](https://img.shields.io/github/license/sugigu/SyncTimeByNTP)
+
 # Random NTP Sync for Windows
 
 A simple PowerShell script that randomly selects one public NTP server, configures Windows Time Service (`w32time`) to use it, and immediately synchronizes the system clock.
@@ -47,6 +53,18 @@ Recommended settings:
 * Trigger: At startup or At logon
 * Run with highest privileges
 
+```mermaid
+flowchart LR
+    Start --> Random
+    Random -->|Taiwan| TW[time.stdtime.gov.tw]
+    Random -->|Google| GO[time.google.com]
+    Random -->|Cloudflare| CF[time.cloudflare.com]
+    TW --> Sync
+    GO --> Sync
+    CF --> Sync
+    Sync --> Finish
+```
+
 ## Example Output
 
 ```text
@@ -60,6 +78,8 @@ The command completed successfully.
 Source: time.cloudflare.com,0x8
 Last Successful Sync Time: 2026-06-25 20:38:42
 ```
+
+
 
 ## License
 
